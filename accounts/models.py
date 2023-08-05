@@ -15,9 +15,9 @@ class Account(AbstractUser):
     verified_email=models.BooleanField(default=False)
 
     # Set the email field as the USERNAME_FIELD for authentication
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     # Add 'email' to the REQUIRED_FIELDS for the createsuperuser command
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['email']
 
     def __str__(self):
         return self.username

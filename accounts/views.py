@@ -30,7 +30,9 @@ def login_view(request):
                 login(request, user)
                 if not user.verified_email:
                     return redirect('verify_email')
-            
+                destination=request.GET.get('next')
+                if destination:
+                    return redirect(destination)
                 return redirect('home')
     else:
         form = AuthenticationForm(request=request)
@@ -56,6 +58,10 @@ def signup_view(request):
             login(request, user)
             if not user.verified_email:
                 return redirect('verify_email')
+            destination=request.GET.get('next')
+            if destination:
+                return redirect(destination)
+                
             return redirect('home')
     
     else:
@@ -97,3 +103,5 @@ def activate_user(request,uidb64,token):
     
     return render(request,'accounts/verification_failed.html',{"user":user})
 
+def reset_password(request):
+    return render(request,'accounts/password_reset',name='reset')
