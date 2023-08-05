@@ -1,5 +1,38 @@
-{% extends 'main/base.html' %}
+{% extends 'accounts/base.html' %}
 
 {% block content %}
+    {% load redotags %}
+    <div class="wrapper">
+        <div class="inner">
+            <form action="{% url 'login' %}" method="post">
+                <h3>Redo</h3>
+                {% csrf_token %}
 
+                {% if form.errors %}
+                    <ul style="margin: 5px; color: #dc2626;">
+                        {% for error in form.non_field_errors %}
+                            <li style="margin-left: 10px;"><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <div class="form-wrapper">
+                    <label for="id_password1">Username or E-mail</label>
+                    {{ form.username|redo_class:"form-control"|redo_holder:"username or E-mail" }}
+                </div>
+                <div class="form-wrapper">
+                    <label for="id_password2">Password</label>
+                    {{ form.password|redo_class:"form-control"|redo_holder:"••••••••••" }}
+                </div>
+
+                <button type="submit" class="form-button">Login</button>
+				<div style="margin: 20px 0;display: flex;align-items: center;justify-content: space-between;padding: 0 20px;">
+                <a href="" class="forgot-password-link">Forgot Password?</a>
+                <a href="{% url 'signup' %}" class="create-account-link">Create Account</a>
+            </div>
+            </form>
+
+            
+        </div>
+    </div>
 {% endblock %}

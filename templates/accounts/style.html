@@ -1,0 +1,189 @@
+{% load static %}
+<style>
+    * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;font-family: 'Open Sans', sans-serif; }
+
+body {
+  color: #0f172a;
+  font-size: 13px;
+  margin: 0;
+background-color: #f9fafb;padding: 0 6px; }
+
+input, textarea, select, button {
+  color: #333;
+  font-size: 13px; }
+
+p, h1, h2, h3, h4, h5, h6, ul {
+  margin: 0; }
+
+img {
+  max-width: 100%; }
+
+ul {
+  padding-left: 0;
+  margin-bottom: 0; }
+
+a{
+  text-decoration: none;
+color: rgb(73, 73, 73); }
+a:hover{
+  text-decoration: underline;
+}
+:focus {
+  outline: none; }
+
+.wrapper {
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center; }
+
+.inner {
+  min-width: 850px;
+  margin: auto;
+  padding-bottom: 10px;
+  }
+  .inner h3 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-align: center;
+  margin-bottom: 20px;color: #475569; }
+
+form {
+  width: 70%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid #9ca3af;
+ }
+
+.form-group {
+  display: flex; }
+  .form-group .form-wrapper {
+    width: 50%; }
+    .form-group .form-wrapper:first-child {
+      margin-right: 20px; }
+
+.form-wrapper {
+  margin-bottom: 17px; }
+  .form-wrapper label {
+    margin-bottom: 9px;
+    display: block; }
+
+.form-control {
+  border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  background: none; }
+  .form-control:focus {
+    border: 1px solid #f97316; }
+
+select {
+  cursor: pointer;
+  padding-left: 20px; }
+  select option[value=""][disabled] {
+    display: none; }
+.form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f97316;
+    color: white;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for button text */
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+/* Add some space around the button */
+.form-button {
+    margin-top: 20px;
+}
+
+/* Apply a hover effect when hovering over the button */
+.form-button:hover {
+    background-color: #ea580c;
+}
+
+/* Apply focus effect when the button is focused */
+.form-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.4);
+    background-color: #ea580c;
+}
+.checkbox-container {
+            display: inline-block;
+            position: relative;
+            margin-right: 10px; /* Adjust spacing between checkbox and label */
+        }
+
+        /* Hidden checkbox input */
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 16px; /* Adjust checkbox size */
+            width: 16px; /* Adjust checkbox size */
+            border-radius: 3px;
+            background-color: #f5f5f5; /* Checkbox background color */
+            border: 1px solid #ccc;
+            color: #000;
+            font-size: 14px; /* Adjust checkmark icon size */
+            text-align: center;
+            line-height: 1; /* Center checkmark icon vertically */
+        }
+
+        /* Checkmark icon */
+        .checkmark::after {
+            content: '\f00c'; /* Font Awesome checkmark icon Unicode value */
+            font-family: "Font Awesome 6 Free"; /* Use the appropriate font-family for the Font Awesome version you're using */
+            display: none; /* Hidden by default */
+        }
+
+        /* Show the checkmark when the checkbox is checked */
+        .checkbox-container input:checked + .checkmark::after {
+            display: block;
+        }
+
+        /* Label style */
+        .checkbox-label {
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+        }
+@media (max-width: 991px) {
+  .inner {
+    min-width: 768px; } }
+@media (max-width: 767px) {
+  .inner {
+    min-width: auto;
+    background: none;
+    padding-top: 0;
+    padding-bottom: 0; }
+
+  form {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px; } }
+
+
+</style>
