@@ -1,4 +1,4 @@
-{% extend 'main/base.html' %}
+{% extends 'main/base.html' %}
 {% block content %}
     {% if not user.is_authenticated %}
     <a href="{% url 'login' %}">Login</a>
