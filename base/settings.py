@@ -14,7 +14,7 @@ AUTH_USER_MODEL='accounts.Account'
 SECRET_KEY = 'django-insecure-m!$b^sz*lb#naq$r_c%c&kc5sdoxyk96w#83%82m7*g&4@q893'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -103,7 +103,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-if DEBUG == True:
+if DEBUG == False:
     
     STATIC_URL = 'static/'
     MEDIA_URL='media/'
