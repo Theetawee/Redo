@@ -126,7 +126,7 @@ if DEBUG == True:
     INTERNAL_IPS = [
         "127.0.0.1",
     ]
-    
+    ACCOUNT_PROTOCOL ='http'
 else:
     #ALLOWED_HOSTS = [''] update allowed hosts for production
     DATABASES = {
@@ -149,7 +149,7 @@ else:
     # DEFAULT_FILE_STORAGE='cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
-    ACCOUNT_DEFAULT_HTTP_PROTOCOL ='https'
+    ACCOUNT_PROTOCOL ='https'
     STATIC_URL='https://theetawee.github.io/company_staticfiles/'
     
     
@@ -166,3 +166,5 @@ EMAIL_USE_TLS = True
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+LOGIN_URL= 'login'

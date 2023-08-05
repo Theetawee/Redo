@@ -1,11 +1,15 @@
 {% extends 'accounts/base.html' %}
-
+{% load static %}
 {% block content %}
     {% load redotags %}
     <div class="wrapper">
         <div class="inner">
             <form action="{% url 'login' %}" method="post">
-                <h3>Redo</h3>
+<a href="{% url 'home' %}" style="display: flex;align-items: center;justify-content: center;margin-bottom: 20px;gap: 7px;text-decoration: none;">
+						<img src="{% static 'images/logo.svg' %}" style="width: 35px;height: 35px;" alt="logo">
+						<h3>Redo</h3>
+					</a>
+					
                 {% csrf_token %}
 
                 {% if form.errors %}
@@ -17,18 +21,18 @@
                 {% endif %}
 
                 <div class="form-wrapper">
-                    <label for="id_password1">Username or E-mail</label>
-                    {{ form.username|redo_class:"form-control"|redo_holder:"username or E-mail" }}
+                    <label for="id_username">Username, E-mail or Phone number</label>
+                    {{ form.username|redo_class:"form-control"|redo_holder:"username, e-mail or Phone number" }}
                 </div>
                 <div class="form-wrapper">
-                    <label for="id_password2">Password</label>
+                    <label for="id_password">Password</label>
                     {{ form.password|redo_class:"form-control"|redo_holder:"••••••••••" }}
                 </div>
 
                 <button type="submit" class="form-button">Login</button>
 				<div style="margin: 20px 0;display: flex;align-items: center;justify-content: space-between;padding: 0 20px;">
                 <a href="" class="forgot-password-link">Forgot Password?</a>
-                <a href="{% url 'signup' %}" class="create-account-link">Create Account</a>
+                <a href="{% url 'signup' %}" style="font-style: italic;color: #f97316;">Create Account</a>
             </div>
             </form>
 
