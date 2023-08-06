@@ -78,6 +78,10 @@ def signup_view(request):
 
 @login_required
 def verify_email(request):
+    if request.user.verified_email:
+        messages.error(request, 'You have already verified your email.')
+        return redirect('home')
+
     cooldown_seconds = getattr(settings, 'VERIFY_EMAIL_COOLDOWN_SECONDS', 300)
     last_email_sent_time_str = request.session.get('last_email_sent_time')
 
@@ -89,10 +93,7 @@ def verify_email(request):
             minutes, seconds = divmod(wait_time.seconds, 60)
             messages.warning(request, f'Please wait {minutes} minutes and {seconds} seconds before resending the verification email.')
             return render(request,'accounts/verify_email.html')
-    if request.user.verified_email:
-        messages.error(request, 'You have already verified your email.')
-        return redirect('home')
-
+    
     send_activation_email(request.user, request)
 
     # Store the current time as a string in ISO format

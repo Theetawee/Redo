@@ -15,18 +15,18 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-AUTH_USER_MODEL='accounts.Account'
+AUTH_USER_MODEL = "accounts.Account"
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 AUTHENTICATION_BACKENDS = [
-    'accounts.backends.EmailOrUsernameModelBackend',
-    'django.contrib.auth.backends.ModelBackend',
+    "accounts.backends.EmailOrUsernameModelBackend",
+    "django.contrib.auth.backends.ModelBackend",
 ]
 
 VERIFY_EMAIL_COOLDOWN_SECONDS = 1000  # 5 minutes cooldown, adjust as needed
@@ -35,47 +35,47 @@ VERIFY_EMAIL_COOLDOWN_SECONDS = 1000  # 5 minutes cooldown, adjust as needed
 # Application definition
 
 INSTALLED_APPS = [
-    'cloudinary_storage',
-    'django.contrib.staticfiles',
-    'cloudinary',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'accounts',
-    'main',
+    "cloudinary_storage",
+    "django.contrib.staticfiles",
+    "cloudinary",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "accounts",
+    "main",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'base.urls'
+ROOT_URLCONF = "base.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'base.wsgi.application'
+WSGI_APPLICATION = "base.wsgi.application"
 
 
 # Password validation
@@ -83,16 +83,16 @@ WSGI_APPLICATION = 'base.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -100,82 +100,70 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
 USE_TZ = True
 
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-STATIC_URL = '/static/'
-MEDIA_URL='media/'
+STATIC_URL = "/static/"
+MEDIA_URL = "media/"
 
-STATICFILES_DIRS=[
-        os.path.join(BASE_DIR,'static'),
-        os.path.join(BASE_DIR,'media')
-]
-    
-
-CLOUDINARY_STORAGE={
-        'CLOUD_NAME': 'de0i3vkvl',
-        'API_KEY': os.environ.get('CLOUD_API'),
-        'API_SECRET': os.environ.get('CLOUD_KEY')
-    }
-    
-
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), os.path.join(BASE_DIR, "media")]
 
 
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": "de0i3vkvl",
+    "API_KEY": os.environ.get("CLOUD_API"),
+    "API_SECRET": os.environ.get("CLOUD_KEY"),
+}
 
-if DEBUG == False:
-    
-    
+
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+
+
+if DEBUG == True:
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-    }
-    
+
     INTERNAL_IPS = [
         "127.0.0.1",
     ]
-    ACCOUNT_PROTOCOL ='http'
+    ACCOUNT_PROTOCOL = "http"
 else:
-    #ALLOWED_HOSTS = [''] update allowed hosts for production
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',
-        'USER': 'redodevs',
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': "ep-green-mouse-30061062.us-east-2.aws.neon.tech",
-        'PORT': '5432',
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "neondb",
+            "USER": "redodevs",
+            "PASSWORD": os.environ.get("DB_PASSWORD"),
+            "HOST": "ep-lively-credit-91648815.eu-central-1.aws.neon.tech",
+            "PORT": "5432",
+        }
     }
-    }
 
-    
-
-    ACCOUNT_PROTOCOL ='https'
-    
-    
-    
+    ACCOUNT_PROTOCOL = "https"
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('EMAIL')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_HOST_USER = os.environ.get("EMAIL")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_USE_TLS = True
 
 MESSAGE_TAGS = {
-    messages.ERROR: 'danger',
+    messages.ERROR: "danger",
 }
 
-LOGIN_URL= 'login'
+LOGIN_URL = "login"
