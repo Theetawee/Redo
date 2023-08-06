@@ -1,0 +1,18 @@
+{% load static %}
+<header>
+<nav class="bg-white h-[57px] dark:bg-gray-900 fixed w-full z-50 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+  <a href="{% url 'home' %}" class="flex items-center">
+      <img src="{% static 'images/logo.svg' %}" class="h-8 mr-3" alt="Flowbite Logo">
+  </a>
+  <div class="dark:text-white text-gray-700">Home</div>
+  <div class="flex md:order-2">
+        <div class="relative">
+            <img class="w-10 h-10 object-cover rounded-full" src="{% static 'images/default.webp' %}" alt="user">
+            <span class="bottom-0 left-7 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+        </div>
+  </div>
+  </div>
+</nav>
+<div class="h-[57px]"></div>
+</header>

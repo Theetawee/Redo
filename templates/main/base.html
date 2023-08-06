@@ -2,18 +2,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>if (localStorage.getItem('color-theme')==='dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){ document.documentElement.classList.add('dark');} else{ document.documentElement.classList.remove('dark')}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"><meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Redo io.{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'images/logo.svg' %}" type="image/svg+xml">
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
 </head>
-<body>
+<body class="bg-white dark:bg-gray-950">
+    <div id="loader" class="h-screen fixed z-40 left-0 w-full top-0 flex items-center bg-white dark:bg-gray-950 justify-center">
+        <img src="{% static 'images/p.gif'%}" class="h-12 w-12 hidden dark:flex object-cover rounded-lg" alt="">
+        <img src="{% static 'images/white.gif'%}" class="h-12 w-12  dark:hidden object-cover rounded-lg" alt="">
+    </div>
     {% include 'main/messages.html' %}
+    {% include 'main/nav.html' %}
     {% block content %}
     
     {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+    <script src="{% static 'js/theme.js'%}"></script>
+    <script>
+        const closeDown=()=>{
+            document.getElementById('loader').style.display='none';
+        }
+        setTimeout(closeDown,3000)
+    </script>
 </body>
 </html>
