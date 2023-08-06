@@ -155,3 +155,4 @@ migrations/
 media
 media_cdn/
 static_cdn/
+node_modules/
