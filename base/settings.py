@@ -14,7 +14,7 @@ AUTH_USER_MODEL='accounts.Account'
 SECRET_KEY = 'django-insecure-m!$b^sz*lb#naq$r_c%c&kc5sdoxyk96w#83%82m7*g&4@q893'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -22,6 +22,8 @@ AUTHENTICATION_BACKENDS = [
     'accounts.backends.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+VERIFY_EMAIL_COOLDOWN_SECONDS = 1000  # 5 minutes cooldown, adjust as needed
 
 
 # Application definition
@@ -103,7 +105,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-if DEBUG == False:
+if DEBUG == True:
     
     STATIC_URL = 'static/'
     MEDIA_URL='media/'

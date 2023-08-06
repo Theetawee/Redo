@@ -8,6 +8,9 @@ from .utils import send_activation_email,generate_token
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_str
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from datetime import datetime, timedelta
+from django.conf import settings
 
 
 
@@ -73,15 +76,33 @@ def signup_view(request):
     return render(request, 'accounts/signup.html', context)
 
 
-
 @login_required
 def verify_email(request):
+    cooldown_seconds = getattr(settings, 'VERIFY_EMAIL_COOLDOWN_SECONDS', 300)
+    last_email_sent_time_str = request.session.get('last_email_sent_time')
+
+    if last_email_sent_time_str:
+        last_email_sent_time = datetime.fromisoformat(last_email_sent_time_str)
+        time_elapsed = timezone.now() - last_email_sent_time
+        if time_elapsed.total_seconds() < cooldown_seconds:
+            wait_time = timedelta(seconds=cooldown_seconds) - time_elapsed
+            minutes, seconds = divmod(wait_time.seconds, 60)
+            messages.warning(request, f'Please wait {minutes} minutes and {seconds} seconds before resending the verification email.')
+            return render(request,'accounts/verify_email.html')
     if request.user.verified_email:
         messages.error(request, 'You have already verified your email.')
         return redirect('home')
-    send_activation_email(request.user,request)
+
+    send_activation_email(request.user, request)
+
+    # Store the current time as a string in ISO format
+    request.session['last_email_sent_time'] = timezone.now().isoformat()
+
     messages.success(request, 'Verification email sent successfully. Please check your inbox.')
-    return render(request,'accounts/verify_email.html' )
+    return render(request, 'accounts/verify_email.html')
+
+
+
 
 
 def logout_user(request):
