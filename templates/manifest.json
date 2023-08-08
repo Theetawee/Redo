@@ -4,7 +4,7 @@
 	"short_name": "Redo",
 	"start_url": "/",
 	"categories": ["books", "education", "medical"],
-	"display": "fullscreen",
+	"display": "standalone",
 	"background_color": "#fff",
 	"theme_color": "#134e4a",
 	"description": "The ultimate height",
