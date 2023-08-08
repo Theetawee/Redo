@@ -58,6 +58,9 @@
 						<input type="checkbox" required  id="check">
 						<label for="check">I agree to the <a href="">Terms and conditions</a></label>
 					</div>
+					{% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+                    {% endif %}
 				<button class="form-button" type="submit">Register Now</button>
 				<div style="margin: 20px 0;display: flex;align-items: center;justify-content: space-between;padding: 0 20px;">
 					<span>
