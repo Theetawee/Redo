@@ -2269,6 +2269,10 @@ input:checked + .toggle-bg {
     margin-right: 0px;
   }
 
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:w-1\/2 {
     width: 50%;
   }
