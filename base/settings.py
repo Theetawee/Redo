@@ -118,6 +118,8 @@ MEDIA_URL = "media/"
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), os.path.join(BASE_DIR, "media")]
 
+STATIC_ROOT=os.path.join(BASE_DIR,'static_cdn')
+MEDIA_ROOT=os.path.join(BASE_DIR,'media_cdn')
 
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": "de0i3vkvl",
@@ -126,7 +128,6 @@ CLOUDINARY_STORAGE = {
 }
 
 
-STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 
 
 if DEBUG == True:
@@ -152,7 +153,7 @@ else:
             "PORT": "5432",
         }
     }
-
+    STATIC_URL='github/'
     ACCOUNT_PROTOCOL = "https"
 
 
