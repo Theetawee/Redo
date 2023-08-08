@@ -19,7 +19,9 @@
         <img src="{% static 'images/white.gif'%}" class="h-12 w-12  dark:hidden object-cover rounded-lg" alt="">
     </div>
     {% include 'main/messages.html' %}
+    {% block nav%}
     {% include 'main/nav.html' %}
+    {% endblock %}
     {% block content %}
     
     {% endblock %}

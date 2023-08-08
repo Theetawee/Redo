@@ -1,15 +1,31 @@
 {% extends 'main/base.html' %}
+{% block nav %}
+
+<header class="z-50 border shadow-sm">
+    <nav class="flex items-center p-4 justify-between">
+        <span onclick="history.back()">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+  </svg>
+        </span>
+        <h1>Profile</h1>
+        <h1></h1>
+    </nav>
+</header>
+
+{% endblock %}
 {% block content %}
 {% load static %}
+
   <!-- Main Content -->
   <div class="container mx-auto p-8">
 
     <!-- Profile Information -->
     <div class="flex flex-col md:flex-row items-center justify-center">
-      <img class="w-32 h-32 rounded-full object-cover mb-4 md:mb-0 md:mr-4" src="{% static 'images/default.webp' %}" alt="Profile Picture">
+      <img class="w-40 h-40 rounded-full object-cover mb-4 md:mb-0 md:mr-4" src="{% static 'images/default.webp' %}" alt="Profile Picture">
       <div class="text-center md:text-left">
-        <h1 class="text-2xl font-bold">name</h1>
-        <p class="text-gray-600">Web Developer</p>
+        <h1 class="text-2xl font-bold">{{account.first_name}} {{account.last_name}}</h1>
+        <p class="text-gray-600 italic">@{{account.username}}</p>
       </div>
     </div>
 

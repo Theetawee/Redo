@@ -8,7 +8,7 @@ urlpatterns=[
     path('logout/',logout_user,name='logout'),
     path('verify_email/',verify_email,name='verify_email'),
     path('activate/<uidb64>/<token>',activate_user,name='activate'),
-    path('profile',profile_view,name='profile'),
+    path('<slug:slug>',profile_view,name='profile'),
     
     path('reset_password/',auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'),name='reset_password'),
     path('reset_password_sent/',auth_views.PasswordResetDoneView.as_view(template_name='accounts/password_reset_sent.html'),name='password_reset_done'),

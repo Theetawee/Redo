@@ -130,5 +130,13 @@ def activate_user(request,uidb64,token):
 def reset_password(request):
     return render(request,'accounts/password_reset',name='reset')
 
-def profile_view(request):
-    return render(request,'accounts/profile.html')
+def profile_view(request,slug):
+    try:
+        account=Account.objects.get(slug=slug)
+    except:
+        messages.error(request,'Account not found')
+        return redirect('home')
+    context={
+        'account':account
+    }
+    return render(request,'accounts/profile.html',context)
