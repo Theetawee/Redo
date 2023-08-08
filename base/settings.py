@@ -36,8 +36,8 @@ VERIFY_EMAIL_COOLDOWN_SECONDS = 1000  # 5 minutes cooldown, adjust as needed
 # Application definition
 
 INSTALLED_APPS = [
-    "cloudinary_storage",
     "django.contrib.staticfiles",
+    "cloudinary_storage",
     "cloudinary",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -121,6 +121,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), os.path.join(BASE_DIR, "me
 STATIC_ROOT=os.path.join(BASE_DIR,'static_cdn')
 MEDIA_ROOT=os.path.join(BASE_DIR,'media_cdn')
 
+
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": "de0i3vkvl",
     "API_KEY": os.environ.get("CLOUD_API"),
@@ -153,7 +154,7 @@ else:
             "PORT": "5432",
         }
     }
-    STATIC_URL='github/'
+    STATIC_URL='https://theetawee.github.io/redo_staticcdn/'
     ACCOUNT_PROTOCOL = "https"
 
 
