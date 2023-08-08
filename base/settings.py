@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "accounts",
     "main",
+    'social',
 ]
 
 MIDDLEWARE = [
