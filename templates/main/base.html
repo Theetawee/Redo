@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
 </head>
 <body class="bg-white dark:bg-gray-950">
-    <div id="loader" class="h-screen fixed z-40 left-0 w-full top-0 flex items-center bg-white dark:bg-gray-950 justify-center">
+    <!-- <div id="loader" class="h-screen fixed z-40 left-0 w-full top-0 flex items-center bg-white dark:bg-gray-950 justify-center">
         <img src="{% static 'images/p.gif'%}" class="h-12 w-12 hidden dark:flex object-cover rounded-lg" alt="">
         <img src="{% static 'images/white.gif'%}" class="h-12 w-12  dark:hidden object-cover rounded-lg" alt="">
-    </div>
-    {% include 'main/messages.html' %}
+    </div>-->
+    {% include 'main/messages.html' %} 
     {% block nav%}
     {% include 'main/nav.html' %}
     {% endblock %}
@@ -58,11 +58,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
     <script src="{% static 'js/theme.js'%}"></script>
-    <script>
+    <!-- <script>
         const closeDown=()=>{
             document.getElementById('loader').style.display='none';
         }
         setTimeout(closeDown,3000)
-    </script>
+    </script> -->
 </body>
 </html>

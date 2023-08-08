@@ -9,21 +9,35 @@
 
 <div class="flex flex-col md:flex-row">
     <!-- Left Section -->
-    <div class="md:w-1/4 bg-gray-200 p-4">
+    <div class="md:w-1/4  p-4">
       <p>Left Section</p>
     </div>
 
-    <!-- Middle Section (Wider) -->
-    <div class="md:w-1/2 bg-gray-300 p-4">
-      <p>Middle Section (Wider)</p>
+    {% for post in posts %}
+    <div class="md:w-1/2  p-4">
+      {% include 'utils/post.html' %}
     </div>
+    {% endfor %}
 
     <!-- Right Section -->
-    <div class="md:w-1/4 bg-gray-200 p-4">
+    <div class="md:w-1/4  p-4">
       <p>Right Section</p>
     </div>
   </div>
 
 
+  <script>
+    window.addEventListener('load',()=>{
+        let skeletons=document.querySelectorAll('.skeleton');
+        let realData=document.querySelectorAll('.non-skeleton');
+        skeletons.forEach((skeleton)=>{
+        skeleton.style.display='none'
+    });
+    realData.forEach((data)=>{
+       data.style.display='block' 
+    })
+    })
+    
+  </script>
 
 {% endblock %}

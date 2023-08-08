@@ -1,16 +1,21 @@
 from django.shortcuts import render
 from accounts.decorators import verified_email_required
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 import os
 from pathlib import Path
+from social.models import Post
 
 
 
 @login_required
 @verified_email_required
 def homepage(request):
-    return render(request,'main/index.html' )
+    posts=Post.objects.all()
+    context={
+        'posts':posts
+    }
+    return render(request,'main/index.html',context )
 
 
 
