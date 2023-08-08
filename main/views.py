@@ -11,7 +11,7 @@ from social.models import Post
 @login_required
 @verified_email_required
 def homepage(request):
-    posts=Post.objects.all()
+    posts=Post.objects.all().order_by('-pub_date')
     context={
         'posts':posts
     }
