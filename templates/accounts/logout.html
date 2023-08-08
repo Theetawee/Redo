@@ -1,0 +1,59 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+
+<style>
+    .btns{
+        margin-top: 20px ;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+.c-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #334155;
+    color: white;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for button text */
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, box-shadow 0.2s;
+  margin-top: 20px;
+}
+
+
+
+/* Apply a hover effect when hovering over the button */
+.c-btn:hover {
+    background-color: #475569;
+}
+
+/* Apply focus effect when the button is focused */
+.c-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(43, 42, 42, 0.4);
+    background-color:#475569;
+}
+</style>
+
+<div class="wrapper">
+    <div class="inner">
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+        <p style="font-size: 1.2rem;">Are you sure you want to logout?</p>
+        <div class="btns">
+            <button type="submit" class="form-button">Yes</button>
+            <button type="button" class="c-btn" onclick="history.back()">Cancel</button>
+        </div>
+       </form> 
+    </div>
+</div>
+
+
+
+{% endblock %}

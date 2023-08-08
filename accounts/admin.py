@@ -19,7 +19,7 @@ class AccountAdmin(admin.ModelAdmin):
     # Example using 'fieldsets':
     fieldsets = (
         ('Basic Information', {
-            'fields': ('username', 'email','phone')
+            'fields': ('first_name','last_name','username', 'email','phone')
         }),
         ('Status', {
             'fields': ('is_active', 'date_joined','status','verified_email')

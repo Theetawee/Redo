@@ -107,8 +107,10 @@ def verify_email(request):
 
 
 def logout_user(request):
-    logout(request)
-    return redirect('login')
+    if request.POST:
+        logout(request)
+        return redirect('login')
+    return render(request,'accounts/logout.html')
 
 
 def activate_user(request,uidb64,token):
@@ -127,3 +129,6 @@ def activate_user(request,uidb64,token):
 
 def reset_password(request):
     return render(request,'accounts/password_reset',name='reset')
+
+def profile_view(request):
+    return render(request,'accounts/profile.html')
