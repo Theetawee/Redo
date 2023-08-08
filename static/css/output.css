@@ -1228,6 +1228,10 @@ input:checked + .toggle-bg {
   margin-bottom: 0.75rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .block {
   display: block;
 }
@@ -2267,6 +2271,10 @@ input:checked + .toggle-bg {
 
   .md\:mr-0 {
     margin-right: 0px;
+  }
+
+  .md\:block {
+    display: block;
   }
 
   .md\:flex {
