@@ -22,7 +22,7 @@
 
     <!-- Profile Information -->
     <div class="flex flex-col md:flex-row items-center justify-center">
-      <img class="w-40 h-40 rounded-full object-cover mb-4 md:mb-0 md:mr-4" src="{% static 'images/default.webp' %}" alt="Profile Picture">
+      <img class="w-40 h-40 rounded-full object-cover mb-4 md:mb-0 md:mr-4" src="{{account.image}}" alt="Profile Picture">
       <div class="text-center md:text-left">
         <h1 class="text-2xl font-bold">{{account.first_name}} {{account.last_name}}</h1>
         <p class="text-gray-600 italic">@{{account.username}}</p>
